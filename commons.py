@@ -6,10 +6,14 @@ from torchvision import models
 import torchvision.transforms as transforms
 
 
+
+
 def get_model():
     model = models.densenet121(pretrained=True)
     model.eval()
     return model
+
+
 
 
 def transform_image(image_bytes):

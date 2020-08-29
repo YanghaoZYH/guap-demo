@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
+      #resultform {  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      } 
+      .gap{
+        padding:0 100px;
+      }
+
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -21,14 +31,35 @@
     <title>Image Prediction using PyTorch</title>
   </head>
   <body class="text-center">
-    <form class="form-signin" method=post enctype=multipart/form-data>
-        <img class="mb-4" src="/static/pytorch.png" alt="" width="72">
-        <h1 class="h3 mb-3 font-weight-normal">Prediction</h1>
-        <h5 class="h5 mb-3 font-weight-normal">Detected Image: {{ class_name }}</h5>
-        <h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_id }}</h5>
-        <p class="mt-5 mb-3 text-muted">Built using Pytorch, Flask and Love</p>
+    <form class = "form-signin" id = 'resultform' method=post enctype=multipart/form-data>
+        <table >
+        <tr>
+        <td><h5 class="h5 mb-3 font-weight-normal">Original Image</h5></td>
+        <td></td>
+        <td><h5 class="h5 mb-3 font-weight-normal">Perturbed Image</h5></td>
+        </tr>
+        <tr>
+        <td><img class="h3 mb-3 font-weight-normal" src={{ ori_image }} alt="ori image" width="224"></td>
+        <td class="gap"><img class="h3 mb-3 font-weight-normal" src="/static/att.jpg" alt="att image" width="150"></td>
+        <td><img class="h3 mb-3 font-weight-normal" src={{ perb_image }} alt="perb image" width="224"></td>
+        </tr>
+        <tr>
+        <td><h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_name }}</h7></td>
+        <td></td>
+        <td><h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_namep }}</h7></td>
+        </tr>
+        <tr>
+        <td><h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_id }}</h5></td>
+        <td></td>
+        <td><h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_idp }}</h5></td>
+        </tr>
+      </table>
+
+        
+
     </form>
     <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <!-- Github Ribbon Start-->
