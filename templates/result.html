@@ -11,15 +11,14 @@
       align-items: center;
       } 
       .gap{
-        padding:0 100px;
+        padding:0 100px 30px 100px;
       }
-
 
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
       }
-
+      
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -32,30 +31,22 @@
   </head>
   <body class="text-center">
     <form class = "form-signin" id = 'resultform' method=post enctype=multipart/form-data>
-        <table >
+        <table width="100%" >
         <tr>
-        <td><h5 class="h5 mb-3 font-weight-normal">Original Image</h5></td>
-        <td></td>
-        <td><h5 class="h5 mb-3 font-weight-normal">Perturbed Image</h5></td>
-        </tr>
-        <tr>
-        <td><img class="h3 mb-3 font-weight-normal" src={{ ori_image }} alt="ori image" width="224"></td>
+        <td><h5 class="h5 mb-3 font-weight-normal">Original Image</h5>
+        <img class="h3 mb-3 font-weight-normal" src={{ ori_image }} alt="ori image" width="224">
+        <h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_name }}</h7>
+        <h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_id }}</h5>
+        </td>
         <td class="gap"><img class="h3 mb-3 font-weight-normal" src="/static/att.jpg" alt="att image" width="150"></td>
-        <td><img class="h3 mb-3 font-weight-normal" src={{ perb_image }} alt="perb image" width="224"></td>
-        </tr>
-        <tr>
-        <td><h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_name }}</h7></td>
-        <td></td>
-        <td><h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_namep }}</h7></td>
-        </tr>
-        <tr>
-        <td><h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_id }}</h5></td>
-        <td></td>
-        <td><h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_idp }}</h5></td>
+        <td><h5 class="h5 mb-3 font-weight-normal">Perturbed Image</h5>
+        <img class="h3 mb-3 font-weight-normal" src={{ perb_image }} alt="perb image" width="224">
+        <h7 class="h7 mb-3 font-weight-normal">Detected: {{ class_namep }}</h7>
+        <h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_idp }}</h5>
+        </td>
         </tr>
       </table>
 
-        
 
     </form>
     <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
