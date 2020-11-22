@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/demon.png">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
       .bd-placeholder-img {
@@ -37,17 +38,17 @@
     </style>
     <link rel="stylesheet" href="/static/style.css">
 
-    <title>GUAP</title>
+    <title>GUAP Demonstration</title>
   </head>
 
   <body class="text-center">
-    <form class="mt-2 h3 indexform" method=post enctype=multipart/form-data>
+    <form class="mt-2 mb-5 h3 indexform" method=post enctype=multipart/form-data>
       Generalizing Universal Adversarial Attacks Beyond Additive Perturbations
-    <img class="mt-4 mb-4" src="/static/w.png" alt="" width="850">
+    <img class="mt-5 mb-4" src="/static/w.png" alt="" width="900">
     <div class="mt-3 h6 d2 text-muted input-group-prepend">
 
 
-      <label class="input-group-text" >Target Model:</label>
+      <label class="input-group-text" >Target Model</label>
       <select class="custom-select" name="modelname">
       <option value ="DenseNet121" selected="selected">DenseNet121</option>
       <option value ="VGG16">VGG16</option>
@@ -57,7 +58,7 @@
       </select>
 
 
-      <label class="ml-4 input-group-text">Base Model:</label>
+      <label class="ml-4 input-group-text">Base Model</label>
       <select class="custom-select" name="basename">
       <option value ="VGG16" selected="selected">VGG16</option>
       <option value="VGG19">VGG19</option>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/demon.png">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
       .resultform {  
@@ -34,7 +35,7 @@
     </style>
     <link rel="stylesheet" href="/static/style.css">
 
-    <title>GUAP</title>
+    <title>GUAP Demonstration</title>
   </head>
   <body class="text-center">
     <!-- <form class = "form-signin" method=post enctype=multipart/form-data>
@@ -50,12 +51,13 @@
       <div class = "form-signin">
       <h5 class="h5 mb-3 font-weight-normal">Original Image</h5>
       <img class="h3 mb-3 font-weight-normal" src={{ ori_image }} alt="ori image" width="150">
-      <h5 class="h6 mb-2 font-weight-normal">{{ model_name }} Predition: {{ class_name }}</h5>
-      <h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_id }}</h5>
+      <h5 class="h6 mb-2 font-weight-normal text-success">{{ model_name }} Predition: {{ class_name }}</h5>
+      <h5 class="h6 mb-3 font-weight-normal text-success">ImageNet Class ID: {{ class_id }}</h5>
     </div>
     <!-- </div> -->
 
     <div class = "form-signin">
+      <h5 class="h5 mb-2 font-weight-normal">Adversary</h5>
       <img class="h3 mb-3 font-weight-normal" src="/static/demon.png" alt="att image" width="120">
       <h5 class="h6 mb-3 font-weight-normal">Base Classifier: {{ base_model }}</h5>
     </div>
@@ -72,15 +74,32 @@
     <div class = " form-signin">
       <h5 class="h5 mb-3 font-weight-normal">Perturbed Image</h5>
       <img class="h3 mb-3 font-weight-normal" src={{ perb_image }} alt="perb image" width="150">
-      <h5 class="h6 mb-2 font-weight-normal">{{ model_name }} Predition: {{ class_namep }}</h5>
-      <h5 class="h6 mb-3 font-weight-normal">ImageNet Class ID: {{ class_idp }}</h5>
+      {% if class_name == class_namep %}
+      <body onload="showAlert1()">
+      <h5 class="h6 mb-2 font-weight-normal text-success">{{ model_name }} Predition: {{ class_namep }}</h5>
+      <h5 class="h6 mb-3 font-weight-normal text-success">ImageNet Class ID: {{ class_idp }}</h5>
+      {% else %}
+      <body onload="showAlert2()">
+      <h5 class="h6 mb-2 font-weight-normal text-danger">{{ model_name }} Predition: {{ class_namep }}</h5>
+      <h5 class="h6 mb-3 font-weight-normal text-danger">ImageNet Class ID: {{ class_idp }}</h5>
+      {% endif %}
     </div>
   </div>
 
+
+  <a class="btn mt-4 btn-outline-secondary" href="." role="button">Go back and Try more</a>
   </div>
 
     <div class="mb-1 fixed-bottom text-muted">Copyright © Yanghao Zhang 2020</div>
 
+    <script>
+    function showAlert1() {
+      alert ("Attack failly!");
+    }
+    function showAlert2() {
+      alert ("Attack successfully!");
+    }
+    </script>
 
     <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     
